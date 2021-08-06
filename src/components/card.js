@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +19,45 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+  // CREATE ELEMENTS
+  const card = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const imgContainer = document.createElement('div');
+  const authorPhoto = document.createElement('img');
+  const authorName = document.createElement('span');
+  
+  // ADD TEXT CONTENT
+  headline.textContent = article.headline;
+  authorPhoto.src = article.authorPhoto;
+  authorName.textContent = `By ${article.authorName}`;
+
+  // SET STRUCTURE
+  card.appendChild(headline);
+  card.appendChild(author);
+  author.appendChild(imgContainer);
+  imgContainer.appendChild(authorPhoto);
+  author.appendChild(authorName);
+
+  // ADD CLASSES
+  card.classList.add('card');
+  headline.classList.add('headline');
+  author.classList.add('author');
+  imgContainer.classList.add('img-container');
+
+  // ADD EVENT LISTENER
+  card.addEventListener('click', function(event){
+    console.log(headline);
+  })
+
+  // const cardChange = document.querySelector('.card');
+  // cardChange.addEventListener('click', function(event){
+  //   console.log(article.headline);
+  // })
+ 
+  // RETURN
+  return card;
 }
 
 const cardAppender = (selector) => {
@@ -28,6 +69,64 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
+  // selector.forEach(item => {
+    
+    axios.get(`http://localhost:5000/api/articles`)
+    .then(res => {
+    console.log('This is RES', res);
+    console.log('This is RES DATA', res.data);
+    console.log('This is RES DATA ARTICLES', res.data.articles);
+
+    // THIS KINDA WORKS FOR FIVE
+      const cardEntry = document.querySelector(selector)
+      const cardArr = Object.entries(res.data.articles)
+      console.log('THIS IS CARDARR', cardArr)
+      cardArr.forEach(item => {
+        const manyCards = Card(item)
+        cardEntry.appendChild(manyCards);
+      })
+      
+    // THIS DOESN'T WORK
+    // const otherAuthors = res.data.article
+
+    // const authorDeck = res.data.articles;
+    // console.log(authorDeck);
+    // authorDeck.forEach(item => {
+    //   const authorArticle = Card(item);
+    //   console.log(authorArticle);
+    //   document.querySelector('.cards-container').appendChild(authorArticle);
+    // })
+
+    // const newCard = ({id, headline, authorPhoto, authorName})
+    // res.data.forEach(item => {
+    //   const newCards = Card(item);
+    //   document.querySelector('.cards-container').appendChild(newCards);
+    // })
+
+    // selector.forEach(item => {
+    // res.data.forEach(item => {
+
+      // const newCard = Card(res.data)
+
+      // manyCards.textContent = res.data.articles;
+      // document.querySelector('.cards-container').appendChild(manyCards);
+    // })
+    // const cardsArr = Array.from(selector);
+    
+    // const manyCards = Card(res.data);
+    // document.querySelector('.cards-container').appendChild(manyCards);
+
+      // res.data.message.forEach(selector => {
+      //   const newCard = Card(res.data);
+      //   document.querySelector('.cards-container').appendChild(newCard);
+      // })
+    })
+    .catch(err => {
+      debugger
+      console.error(err)
+    })
+  // })
 }
 
 export { Card, cardAppender }
