@@ -11,6 +11,20 @@ const Header = (title, date, temp) => {
   //    <span class="temp">{ temp }</span>
   //  </div>
   //
+  const header = document.querySelector('.header');
+  const date = document.querySelector('.date');
+  const title = document.querySelector('h1');
+  const temp = document.querySelector('.temp');
+
+  date.textContent = 'January 6, 2021';
+  title.textContent = 'Lambda Times';
+  temp.textContent = '26';
+
+  header.appendChild(date);
+  header.appendChild(title);
+  header.appendChild(temp);
+
+  return Header;
 }
 
 const headerAppender = (selector) => {
