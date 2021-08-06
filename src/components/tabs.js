@@ -83,7 +83,7 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-
+  console.log('THIS IS THE TABS SELECTOR', selector);
   axios.get(`http://localhost:5000/api/topics`)
     .then(res => {
     console.log('This is RES', res);
@@ -106,7 +106,7 @@ const tabsAppender = (selector) => {
     // console.log(newTab2);
 
     // const newTab = Tabs(res.data);
-    // document.querySelector('.tabs-container').appendChild(newTab);
+    // document.querySelector('selector').appendChild(newTab);
     
     // res.data.topics.forEach(item => {
     //   const newTab = Tabs(res.data.topics);
@@ -115,7 +115,7 @@ const tabsAppender = (selector) => {
     // })
 
     // selector.forEach(item => {
-    //   const tabElement = document.createElement('.tabs-container')
+    //   const tabElement = document.createElement('selector')
     //   tabElement.textContent = topics;
     //   tabs.appendChild(tabElement);
     // })
@@ -125,15 +125,15 @@ const tabsAppender = (selector) => {
     // })
 
     // const newTabs = Tabs(topics);
-    // document.querySelector('.tabs-container').appendChild(newTabs);
+    // document.querySelector('selector').appendChild(newTabs);
 
     // topics.forEach(div => {
-    //   document.querySelector('.tabs-container').appendChild(div);
+    //   document.querySelector('selector').appendChild(div);
     // })
 
     // selector.forEach(item => {
     // const tabs = Tabs(topics);
-    // document.createElement('.tabs-container').appendChild(tabs);
+    // document.createElement(selector).appendChild(tabs);
     // })
     // })
 

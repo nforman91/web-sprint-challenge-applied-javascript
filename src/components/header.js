@@ -52,7 +52,8 @@ const headerAppender = (selector) => {
   //
 
   // THIS WORKS
-  const headerEntry = document.querySelector('.header-container');
+  console.log('THIS IS THE HEADER SELECTOR', selector);
+  const headerEntry = document.querySelector(selector);
   const newHeader = Header('Lambda Times', 'August 6, 2021', '26\u00B0');
   headerEntry.appendChild(newHeader);
 }

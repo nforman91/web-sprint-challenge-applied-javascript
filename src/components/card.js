@@ -51,7 +51,7 @@ const Card = (article) => {
 
   // ADD EVENT LISTENER
   card.addEventListener('click', function(event){
-    console.log(article.headline);
+    console.log(headline);
   })
 
   // const cardChange = document.querySelector('.card');
@@ -74,12 +74,18 @@ const cardAppender = (selector) => {
   //
 
   // selector.forEach(item => {
+    console.log('THIS IS THE CARD SELECTOR', selector);
     axios.get(`http://localhost:5000/api/articles`)
     .then(res => {
     console.log('This is RES', res);
     console.log('This is RES DATA', res.data);
     console.log('This is RES DATA ARTICLES', res.data.articles);
 
+    // THIS WORKS FOR ONE
+      const manyCards = Card(res);
+      document.querySelector(selector).appendChild(manyCards);
+
+    // THIS DOESN'T WORK
     // const authorDeck = res.data.articles;
     // console.log(authorDeck);
     // authorDeck.forEach(item => {
@@ -98,9 +104,6 @@ const cardAppender = (selector) => {
     // res.data.forEach(item => {
 
       // const newCard = Card(res.data)
-
-      const manyCards = Card(res);
-      document.querySelector('.cards-container').appendChild(manyCards);
 
       // manyCards.textContent = res.data.articles;
       // document.querySelector('.cards-container').appendChild(manyCards);
