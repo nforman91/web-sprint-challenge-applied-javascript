@@ -80,10 +80,27 @@ const cardAppender = (selector) => {
     console.log('This is RES', res);
     console.log('This is RES DATA', res.data);
     console.log('This is RES DATA ARTICLES', res.data.articles);
+
+    // const authorDeck = res.data.articles;
+    // console.log(authorDeck);
+    // authorDeck.forEach(item => {
+    //   const authorArticle = Card(item);
+    //   console.log(authorArticle);
+    //   document.querySelector('.cards-container').appendChild(authorArticle);
+    // })
+
+    // const newCard = ({id, headline, authorPhoto, authorName})
+    // res.data.forEach(item => {
+    //   const newCards = Card(item);
+    //   document.querySelector('.cards-container').appendChild(newCards);
+    // })
+
     // selector.forEach(item => {
     // res.data.forEach(item => {
-      const manyCards = Card(res);
-      document.querySelector('.cards-container').appendChild(manyCards);
+
+      // const manyCards = Card(res);
+      // document.querySelector('.cards-container').appendChild(manyCards);
+
       // manyCards.textContent = res.data.articles;
       // document.querySelector('.cards-container').appendChild(manyCards);
     // })
@@ -98,6 +115,7 @@ const cardAppender = (selector) => {
       // })
     })
     .catch(err => {
+      debugger
       console.error(err)
     })
   // })

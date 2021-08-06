@@ -41,24 +41,29 @@ const Tabs = (topics) => {
 
   // return tabContainer;
 
+  // CREATE ELEMENTS
   const tabs = document.createElement('div');
   const tab1 = document.createElement('div');
   const tab2 = document.createElement('div');
   const tab3 = document.createElement('div');
 
+  // ADD TEXT CONTENT
   tab1.textContent = topics[0];
   tab2.textContent = topics[1];
   tab3.textContent = topics[2];
 
+  // SET STRUCTURE
   tabs.appendChild(tab1);
   tabs.appendChild(tab2);
   tabs.appendChild(tab3);
 
+  // ADD CLASSES
   tabs.classList.add('topics');
   tab1.classList.add('tab');
   tab2.classList.add('tab');
   tab3.classList.add('tab');
 
+  // RETURN
   return tabs;
 }
 
@@ -85,6 +90,10 @@ const tabsAppender = (selector) => {
     console.log('This is RES DATA', res.data);
     console.log('This is RES DATA TOPICS', res.data.topics);
     })
+
+    // const newTab = Tabs(res.data);
+    // document.querySelector('.tabs-container').appendChild(newTab);
+    
     // res.data.topics.forEach(item => {
     //   const newTab = Tabs(res.data.topics);
     //   newTab.textContent = res.data.topics;
@@ -113,8 +122,10 @@ const tabsAppender = (selector) => {
     // document.createElement('.tabs-container').appendChild(tabs);
     // })
     // })
+    
     .catch(err => {
-    console.error(err)
+      debugger
+      console.error(err)
     })
 }
 
