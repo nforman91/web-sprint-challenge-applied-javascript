@@ -80,7 +80,6 @@ const cardAppender = (selector) => {
 
     // THIS KINDA WORKS FOR FIVE
       const cardEntry = document.querySelector(selector)
-      const cardData = res.data.articles
       const cardArr = Object.entries(res.data.articles)
       console.log('THIS IS CARDARR', cardArr)
       cardArr.forEach(item => {
