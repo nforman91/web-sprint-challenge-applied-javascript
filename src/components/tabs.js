@@ -41,7 +41,7 @@ const Tabs = (topics) => {
 //   tabs.appendChild(tabsElement);
 // })
 
-Tabs(['javascript', 'bootstrap', 'technology']);
+// Tabs(['javascript', 'bootstrap', 'technology']);
 
 const tabsAppender = (selector) => {
   // TASK 4
@@ -54,12 +54,29 @@ const tabsAppender = (selector) => {
 
   axios.get(`http://localhost:5000/api/topics`)
   .then(res => {
-    selector.forEach(item => {
-    const topicsElement = document.createElement('.tabs-container');
-    const tabs = Tabs(topics);
-    topicsElement.appendChild(tabs)
+    // console.log(res);
+    // selector.forEach(item => {
+    //   const tabElement = document.createElement('.tabs-container')
+    //   tabElement.textContent = topics;
+    //   tabs.appendChild(tabElement);
+    // })
+
+    // const tabElements = topics.map(item => {
+    //   return Tabs(item); 
+    // })
+
+    // const newTabs = Tabs(topics);
+    // document.querySelector('.tabs-container').appendChild(newTabs);
+
+    // topics.forEach(div => {
+    //   document.querySelector('.tabs-container').appendChild(div);
+    // })
+
+    // selector.forEach(item => {
+    // const tabs = Tabs(topics);
+    // document.createElement('.tabs-container').appendChild(tabs);
   })
-  })
+  // })
   .catch(err => {
     console.log(err)
   })
