@@ -15,6 +15,32 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+  // console.log('This is the TOPICS', topics);
+
+  // const tabContainer = document.createElement('div');
+  // const tab = document.createElement('div');
+
+  // tab[0].textContent = topics[0];
+  // tab[1].textContent = topics[1];
+  // tab[2].textContent = topics[2];
+  // tab[3].textContent = topics[3];
+  // tab[4].textContent = topics[4];
+
+  // tabContainer.appendChild(tab[0]);
+  // tabContainer.appendChild(tab[1]);
+  // tabContainer.appendChild(tab[2]);
+  // tabContainer.appendChild(tab[3]);
+  // tabContainer.appendChild(tab[4]);
+
+  // tabContainer.classList.add('topics');
+  // tab[0].classList.add('tab');
+  // tab[1].classList.add('tab');
+  // tab[2].classList.add('tab');
+  // tab[3].classList.add('tab');
+  // tab[4].classList.add('tab');
+
+  // return tabContainer;
+
   const tabs = document.createElement('div');
   const tab1 = document.createElement('div');
   const tab2 = document.createElement('div');
@@ -28,6 +54,7 @@ const Tabs = (topics) => {
   tabs.appendChild(tab2);
   tabs.appendChild(tab3);
 
+  tabs.classList.add('topics');
   tab1.classList.add('tab');
   tab2.classList.add('tab');
   tab3.classList.add('tab');
@@ -53,8 +80,17 @@ const tabsAppender = (selector) => {
   //
 
   axios.get(`http://localhost:5000/api/topics`)
-  .then(res => {
-    // console.log(res);
+    .then(res => {
+    console.log('This is RES', res);
+    console.log('This is RES DATA', res.data);
+    console.log('This is RES DATA TOPICS', res.data.topics);
+    })
+    // res.data.topics.forEach(item => {
+    //   const newTab = Tabs(res.data.topics);
+    //   newTab.textContent = res.data.topics;
+    //   tabs.appendChild(newTab);
+    // })
+
     // selector.forEach(item => {
     //   const tabElement = document.createElement('.tabs-container')
     //   tabElement.textContent = topics;
@@ -75,11 +111,11 @@ const tabsAppender = (selector) => {
     // selector.forEach(item => {
     // const tabs = Tabs(topics);
     // document.createElement('.tabs-container').appendChild(tabs);
-  })
-  // })
-  .catch(err => {
-    console.log(err)
-  })
+    // })
+    // })
+    .catch(err => {
+    console.error(err)
+    })
 }
 
 export { Tabs, tabsAppender }

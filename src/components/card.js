@@ -19,6 +19,10 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+  // console.log('These are the ARTICLES', article);
+  // console.log('This is the ARTICLE', article.bootstrap)
+
   const card = document.createElement('div');
   const headline = document.createElement('div');
   const author = document.createElement('div');
@@ -59,16 +63,30 @@ const cardAppender = (selector) => {
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
 
-  axios.get(`http://localhost:5000/api/articles`)
-  .then(res => {
-    res.data.message.forEach(selector => {
-      const newCard = Card(res.data);
-      document.querySelector('.cards-container').appendChild(newCard);
+  // selector.forEach(item => {
+    axios.get(`http://localhost:5000/api/articles`)
+    .then(res => {
+    console.log('This is RES', res);
+    console.log('This is RES DATA', res.data);
+    console.log('This is RES DATA ARTICLES', res.data.articles);
+    // selector.forEach(item => {
+    const manyCards = Card(res.data.articles);
+    // manyCards.textContent = res.data.articles;
+    document.querySelector('.cards-container').appendChild(manyCards);
+    // const cardsArr = Array.from(selector);
+    
+    // const manyCards = Card(res.data);
+    // document.querySelector('.cards-container').appendChild(manyCards);
+
+      // res.data.message.forEach(selector => {
+      //   const newCard = Card(res.data);
+      //   document.querySelector('.cards-container').appendChild(newCard);
+      // })
     })
-  })
-  .catch(err => {
-    console.error(err)
-  })
+    .catch(err => {
+      console.error(err)
+    })
+  // })
 }
 
 export { Card, cardAppender }
