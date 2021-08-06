@@ -90,6 +90,20 @@ const tabsAppender = (selector) => {
     console.log('This is RES DATA', res.data);
     console.log('This is RES DATA TOPICS', res.data.topics);
     })
+    // THIS WORKS
+
+
+    // THIS DOESN'T WORK
+    // const JS = res.data.topics[0]
+    // const newTab1 = Tab({JS})
+    // console.log('THIS IS NEW TAB1', newTab1);
+    
+    // const Bootstrap = res.data.topics[1]
+    // const JQuery = res.data.topics[2]
+    // const Node = res.data.topics[3]
+    // const Technology = res.data.topics[4]
+    // const newTab2 = Tab({JS, Bootstrap, JQuery, Node, Technology})
+    // console.log(newTab2);
 
     // const newTab = Tabs(res.data);
     // document.querySelector('.tabs-container').appendChild(newTab);
@@ -122,7 +136,7 @@ const tabsAppender = (selector) => {
     // document.createElement('.tabs-container').appendChild(tabs);
     // })
     // })
-    
+
     .catch(err => {
       debugger
       console.error(err)

@@ -50,14 +50,13 @@ const Card = (article) => {
   imgContainer.classList.add('img-container');
 
   // ADD EVENT LISTENER
+  card.addEventListener('click', function(event){
+    console.log(article.headline);
+  })
+
   // const cardChange = document.querySelector('.card');
   // cardChange.addEventListener('click', function(event){
   //   console.log(article.headline);
-  // })
-
-  // const heading2Chg = document.querySelector('h2');
-  // heading2Chg.addEventListener('click', function (event) {
-  //   heading2Chg.style.transform = "rotate(20deg)";
   // })
  
   // RETURN
@@ -98,8 +97,10 @@ const cardAppender = (selector) => {
     // selector.forEach(item => {
     // res.data.forEach(item => {
 
-      // const manyCards = Card(res);
-      // document.querySelector('.cards-container').appendChild(manyCards);
+      // const newCard = Card(res.data)
+
+      const manyCards = Card(res);
+      document.querySelector('.cards-container').appendChild(manyCards);
 
       // manyCards.textContent = res.data.articles;
       // document.querySelector('.cards-container').appendChild(manyCards);
