@@ -46,23 +46,30 @@ const Tabs = (topics) => {
   const tab1 = document.createElement('div');
   const tab2 = document.createElement('div');
   const tab3 = document.createElement('div');
+  const tab4 = document.createElement('div');
+  const tab5 = document.createElement('div');
 
   // ADD TEXT CONTENT
   tab1.textContent = topics[0];
   tab2.textContent = topics[1];
   tab3.textContent = topics[2];
-
+  tab4.textContent = topics[3];
+  tab5.textContent = topics[4];
 
   // SET STRUCTURE
   tabs.appendChild(tab1);
   tabs.appendChild(tab2);
   tabs.appendChild(tab3);
+  tabs.appendChild(tab4);
+  tabs.appendChild(tab5);
 
   // ADD CLASSES
   tabs.classList.add('topics');
   tab1.classList.add('tab');
   tab2.classList.add('tab');
   tab3.classList.add('tab');
+  tab4.classList.add('tab');
+  tab5.classList.add('tab');
 
   // RETURN
   return tabs;
@@ -90,14 +97,13 @@ const tabsAppender = (selector) => {
     console.log('This is RES DATA', res.data);
     console.log('This is RES DATA TOPICS', res.data.topics);
     
-    // THIS WORKS
+    // THIS KIND OF WORKS
     const tabEntry = document.querySelector(selector)
-    const tabData = res.data
-    tabData.forEach(item => {
-      const newTab = Tabs(item)
-      tabEntry.appendChild(newTab)
+    const tabData = res.data.topics
+    const newTab = Tabs(tabData)
+    tabEntry.appendChild(newTab)
     })
-    })
+
     // THIS DOESN'T WORK
     // topics.forEach(item => {
     //   document.querySelector(selector).appendChild(newTabs)
