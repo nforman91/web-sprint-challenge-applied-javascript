@@ -23,6 +23,7 @@ const Card = (article) => {
   // console.log('These are the ARTICLES', article);
   // console.log('This is the ARTICLE', article.bootstrap)
 
+  // CREATE ELEMENTS
   const card = document.createElement('div');
   const headline = document.createElement('div');
   const author = document.createElement('div');
@@ -30,26 +31,36 @@ const Card = (article) => {
   const authorPhoto = document.createElement('img');
   const authorName = document.createElement('span');
   
+  // ADD TEXT CONTENT
   headline.textContent = article.headline;
   authorPhoto.src = article.authorPhoto;
   authorName.textContent = `By ${article.authorName}`;
 
+  // SET STRUCTURE
   card.appendChild(headline);
   card.appendChild(author);
   author.appendChild(imgContainer);
   imgContainer.appendChild(authorPhoto);
   author.appendChild(authorName);
 
+  // ADD CLASSES
   card.classList.add('card');
   headline.classList.add('headline');
   author.classList.add('author');
   imgContainer.classList.add('img-container');
 
+  // ADD EVENT LISTENER
   // const cardChange = document.querySelector('.card');
   // cardChange.addEventListener('click', function(event){
-  //   console.log(headline);
+  //   console.log(article.headline);
   // })
 
+  // const heading2Chg = document.querySelector('h2');
+  // heading2Chg.addEventListener('click', function (event) {
+  //   heading2Chg.style.transform = "rotate(20deg)";
+  // })
+ 
+  // RETURN
   return card;
 }
 
