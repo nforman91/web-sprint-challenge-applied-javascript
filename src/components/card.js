@@ -81,9 +81,12 @@ const cardAppender = (selector) => {
     console.log('This is RES DATA', res.data);
     console.log('This is RES DATA ARTICLES', res.data.articles);
     // selector.forEach(item => {
-    const manyCards = Card(res.data.articles);
-    // manyCards.textContent = res.data.articles;
-    document.querySelector('.cards-container').appendChild(manyCards);
+    // res.data.forEach(item => {
+      const manyCards = Card(res);
+      document.querySelector('.cards-container').appendChild(manyCards);
+      // manyCards.textContent = res.data.articles;
+      // document.querySelector('.cards-container').appendChild(manyCards);
+    // })
     // const cardsArr = Array.from(selector);
     
     // const manyCards = Card(res.data);
