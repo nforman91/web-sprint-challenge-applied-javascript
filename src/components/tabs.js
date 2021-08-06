@@ -52,6 +52,7 @@ const Tabs = (topics) => {
   tab2.textContent = topics[1];
   tab3.textContent = topics[2];
 
+
   // SET STRUCTURE
   tabs.appendChild(tab1);
   tabs.appendChild(tab2);
@@ -83,17 +84,30 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
-  console.log('THIS IS THE TABS SELECTOR', selector);
   axios.get(`http://localhost:5000/api/topics`)
     .then(res => {
     console.log('This is RES', res);
     console.log('This is RES DATA', res.data);
     console.log('This is RES DATA TOPICS', res.data.topics);
-    })
+    
     // THIS WORKS
-
-
+    const tabEntry = document.querySelector(selector)
+    const tabData = res.data
+    tabData.forEach(item => {
+      const newTab = Tabs(item)
+      tabEntry.appendChild(newTab)
+    })
+    })
     // THIS DOESN'T WORK
+    // topics.forEach(item => {
+    //   document.querySelector(selector).appendChild(newTabs)
+    // })
+
+
+    // const newTabs = Tabs(res.data)
+    // document.querySelector(selector).appendChild(newTabs)
+
+    
     // const JS = res.data.topics[0]
     // const newTab1 = Tab({JS})
     // console.log('THIS IS NEW TAB1', newTab1);
