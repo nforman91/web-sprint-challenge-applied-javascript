@@ -15,31 +15,6 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
-  // console.log('This is the TOPICS', topics);
-
-  // const tabContainer = document.createElement('div');
-  // const tab = document.createElement('div');
-
-  // tab[0].textContent = topics[0];
-  // tab[1].textContent = topics[1];
-  // tab[2].textContent = topics[2];
-  // tab[3].textContent = topics[3];
-  // tab[4].textContent = topics[4];
-
-  // tabContainer.appendChild(tab[0]);
-  // tabContainer.appendChild(tab[1]);
-  // tabContainer.appendChild(tab[2]);
-  // tabContainer.appendChild(tab[3]);
-  // tabContainer.appendChild(tab[4]);
-
-  // tabContainer.classList.add('topics');
-  // tab[0].classList.add('tab');
-  // tab[1].classList.add('tab');
-  // tab[2].classList.add('tab');
-  // tab[3].classList.add('tab');
-  // tab[4].classList.add('tab');
-
-  // return tabContainer;
 
   // CREATE ELEMENTS
   const tabs = document.createElement('div');
@@ -97,7 +72,7 @@ const tabsAppender = (selector) => {
     console.log('This is RES DATA', res.data);
     console.log('This is RES DATA TOPICS', res.data.topics);
     
-    // THIS KIND OF WORKS
+    // THIS WORKS
     const tabEntry = document.querySelector(selector)
     const tabData = res.data.topics
     const newTab = Tabs(tabData)
@@ -109,10 +84,8 @@ const tabsAppender = (selector) => {
     //   document.querySelector(selector).appendChild(newTabs)
     // })
 
-
     // const newTabs = Tabs(res.data)
     // document.querySelector(selector).appendChild(newTabs)
-
     
     // const JS = res.data.topics[0]
     // const newTab1 = Tab({JS})

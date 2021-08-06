@@ -12,10 +12,6 @@ const Header = (title, date, temp) => {
   //  </div>
   //
 
-  // console.log('This is the TITLE', title);
-  // console.log('This is the DATE', date);
-  // console.log('This is the TEMP', temp);
-
   // CREATE ELEMENTS
   const myHeader = document.createElement('div');
   const myDate = document.createElement('span');
